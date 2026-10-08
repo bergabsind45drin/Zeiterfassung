@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zeiterfassung</title>
+
 <style>
 :root{
   --bg:#0f1419;
@@ -15,27 +16,166 @@
   --danger:#ff5d5d;
 }
 
-body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;color:var(--text);display:flex;justify-content:center;}
-.container{width:100%;max-width:420px;padding:20px 16px 40px 16px;box-sizing:border-box;margin:0 auto;}
-h1{text-align:center;margin-bottom:25px;}
-.card{background:var(--card);padding:20px;border-radius:18px;margin-bottom:20px;box-shadow:0 8px 25px rgba(0,0,0,0.4);display:flex;flex-direction:column;align-items:center;}
-label{display:block;margin-bottom:6px;color:var(--muted);font-size:13px;align-self:flex-start;}
-input{background:#11161c;border:none;padding:12px;border-radius:12px;color:var(--text);width:100%;max-width:100%;box-sizing:border-box;margin-bottom:10px;}
-button{border:none;cursor:pointer;font-size:13px;border-radius:10px;width:100%;max-width:200px;margin-top:5px;}
-.btn-blue{background:var(--blue);color:white;padding:8px 12px;}
-.btn-red{background:var(--danger);color:white;padding:6px 10px;}
-.action-buttons{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}
-.icon-btn{background:#11161c;border:1px solid #2b3642;color:var(--blue);padding:6px 8px;border-radius:8px;transition:0.2s;}
-.icon-btn:hover{background:var(--blue);color:white;border-color:var(--blue);}
-table{width:100%;border-collapse:separate;border-spacing:0 8px;font-size:13px;}
-th{text-align:center;padding:8px;border-radius:8px;background:#11161c;}
-td{background:#11161c;padding:8px;border-radius:8px;text-align:center;}
-.timekonto{text-align:center;font-size:18px;font-weight:600;}
-.plus{ color:var(--green); }
-.minus{ color:var(--danger); }
-#timebar-container{width:100%;height:24px;background:#11161c;border-radius:12px;overflow:hidden;margin-top:10px;position:relative;}
-#timebar{height:100%;width:0%;background:var(--blue);transition:width 0.2s, background 0.2s;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:bold;}
-#fruehesterFeierabend{margin-top:5px;text-align:center;font-weight:bold;}
+body{
+  margin:0;
+  background:var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+  color:var(--text);
+  display:flex;
+  justify-content:center;
+}
+
+.container{
+  width:100%;
+  max-width:420px;
+  padding:20px 16px 40px 16px;
+  box-sizing:border-box;
+  margin:0 auto;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:18px;
+  margin-bottom:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.4);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+label{
+  display:block;
+  margin-bottom:6px;
+  color:var(--muted);
+  font-size:13px;
+  align-self:flex-start;
+}
+
+input{
+  background:#11161c;
+  border:none;
+  padding:12px;
+  border-radius:12px;
+  color:var(--text);
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  margin-bottom:10px;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+  font-size:13px;
+  border-radius:10px;
+  width:100%;
+  max-width:200px;
+  margin-top:5px;
+}
+
+.btn-blue{
+  background:var(--blue);
+  color:white;
+  padding:8px 12px;
+}
+
+.btn-red{
+  background:var(--danger);
+  color:white;
+  padding:6px 10px;
+}
+
+.action-buttons{
+  display:flex;
+  gap:6px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.icon-btn{
+  background:#11161c;
+  border:1px solid #2b3642;
+  color:var(--blue);
+  padding:6px 8px;
+  border-radius:8px;
+  transition:0.2s;
+}
+
+.icon-btn:hover{
+  background:var(--blue);
+  color:white;
+  border-color:var(--blue);
+}
+
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0 8px;
+  font-size:13px;
+}
+
+th{
+  text-align:center;
+  padding:8px;
+  border-radius:8px;
+  background:#11161c;
+}
+
+td{
+  background:#11161c;
+  padding:8px;
+  border-radius:8px;
+  text-align:center;
+}
+
+.timekonto{
+  text-align:center;
+  font-size:18px;
+  font-weight:600;
+}
+
+.plus{
+  color:var(--green);
+}
+
+.minus{
+  color:var(--danger);
+}
+
+#timebar-container{
+  width:100%;
+  height:24px;
+  background:#11161c;
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:10px;
+  position:relative;
+}
+
+#timebar{
+  height:100%;
+  width:0%;
+  background:var(--blue);
+  transition:width 0.2s, background 0.2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:14px;
+  font-weight:bold;
+}
+
+#fruehesterFeierabend{
+  margin-top:5px;
+  text-align:center;
+  font-weight:bold;
+}
 </style>
 </head>
 
@@ -48,22 +188,26 @@ td{background:#11161c;padding:8px;border-radius:8px;text-align:center;}
 <div class="card">
 
 <label for="datum">Datum</label>
-<input type="date" id="datum" oninput="saveInputFields()"><br>
+<input type="date" id="datum" oninput="saveInputFields()">
 
 <label for="kommen">Kommen-Zeit</label>
-<input type="time" id="kommen" placeholder="Kommen-Zeit" oninput="updateTimebar();saveInputFields()"><br>
+<input type="time" id="kommen"
+       oninput="updateTimebar();saveInputFields()">
 
 <label for="gehen">Gehen-Zeit</label>
-<input type="time" id="gehen" placeholder="Gehen-Zeit" oninput="updateTimebar();saveInputFields()"><br>
+<input type="time" id="gehen"
+       oninput="updateTimebar();saveInputFields()">
 
-<button class="btn-blue" onclick="inHistorie()">In Historie übernehmen</button>
+<button type="button" class="btn-blue" onclick="inHistorie()">
+  In Historie übernehmen
+</button>
 
 <div id="timebar-container">
-<div id="timebar">0%</div>
+  <div id="timebar">0%</div>
 </div>
 
 <div id="fruehesterFeierabend">
-Frühester Feierabend: --:--
+  Frühester Feierabend: --:--
 </div>
 
 </div>
@@ -77,11 +221,11 @@ Frühester Feierabend: --:--
 
 <thead>
 <tr>
-<th>Datum</th>
-<th>Kommen</th>
-<th>Gehen</th>
-<th>Überstunden</th>
-<th>Aktionen</th>
+  <th>Datum</th>
+  <th>Kommen</th>
+  <th>Gehen</th>
+  <th>Überstunden</th>
+  <th>Aktionen</th>
 </tr>
 </thead>
 
@@ -91,8 +235,13 @@ Frühester Feierabend: --:--
 
 <br>
 
-<button class="btn-blue" onclick="exportPDF()">Als PDF exportieren</button>
-<button class="btn-red" onclick="allesLoeschen()">Alles löschen</button>
+<button type="button" class="btn-blue" onclick="exportPDF()">
+  Als PDF exportieren
+</button>
+
+<button type="button" class="btn-red" onclick="allesLoeschen()">
+  Alles löschen
+</button>
 
 </div>
 
@@ -102,7 +251,7 @@ Frühester Feierabend: --:--
 <h3>Zeitkonto</h3>
 
 <div class="timekonto" id="zeitkonto">
-0h 00min
+  0h 00min
 </div>
 
 </div>
@@ -112,483 +261,865 @@ Frühester Feierabend: --:--
 
 <script>
 
-/* 8 Stunden Arbeitszeit + 45 Minuten Pause */
+/* =========================================================
+   ARBEITSZEIT
+   8 Stunden Arbeitszeit + 45 Minuten Pause = 525 Minuten
+   ========================================================= */
+
 const SOLL_MINUTEN = 525;
 
-const historieTable = document.getElementById("historie").querySelector("tbody");
-const zeitkontoAnzeige = document.getElementById("zeitkonto");
-const timebar = document.getElementById("timebar");
-const feierabendAnzeige = document.getElementById("fruehesterFeierabend");
 
-const datumInput = document.getElementById("datum");
-const kommenInput = document.getElementById("kommen");
-const gehenInput = document.getElementById("gehen");
+/* Elemente */
+
+const historieTable =
+  document.getElementById("historie").querySelector("tbody");
+
+const zeitkontoAnzeige =
+  document.getElementById("zeitkonto");
+
+const timebar =
+  document.getElementById("timebar");
+
+const feierabendAnzeige =
+  document.getElementById("fruehesterFeierabend");
+
+const datumInput =
+  document.getElementById("datum");
+
+const kommenInput =
+  document.getElementById("kommen");
+
+const gehenInput =
+  document.getElementById("gehen");
 
 
-function zeitZuMinuten(z){
-    if(!z) return 0;
+/* =========================================================
+   ZEIT-FUNKTIONEN
+   ========================================================= */
 
-    const [h,m] = z.split(":").map(Number);
+function zeitZuMinuten(zeit){
 
-    return h * 60 + m;
+  if(!zeit) return 0;
+
+  const teile = zeit.split(":");
+
+  const stunden = Number(teile[0]);
+  const minuten = Number(teile[1]);
+
+  return stunden * 60 + minuten;
 }
 
 
-function minutenZuText(min){
+function minutenZuText(minuten){
 
-    const prefix = min >= 0 ? "+" : "-";
+  const prefix =
+    minuten >= 0 ? "+" : "-";
 
-    min = Math.abs(min);
+  minuten =
+    Math.abs(minuten);
 
-    const h = Math.floor(min / 60);
+  const stunden =
+    Math.floor(minuten / 60);
 
-    const m = min % 60;
+  const restMinuten =
+    minuten % 60;
 
-    return `${prefix}${h}h ${m.toString().padStart(2,"0")}min`;
+  return (
+    prefix +
+    stunden +
+    "h " +
+    restMinuten.toString().padStart(2,"0") +
+    "min"
+  );
 }
 
 
 function differenzBerechnen(kommen,gehen){
 
-    return zeitZuMinuten(gehen)
-         - zeitZuMinuten(kommen)
-         - SOLL_MINUTEN;
+  return (
+    zeitZuMinuten(gehen) -
+    zeitZuMinuten(kommen) -
+    SOLL_MINUTEN
+  );
 }
 
 
+/* =========================================================
+   EINGABEN SPEICHERN
+   ========================================================= */
+
 function saveInputFields(){
 
-    const daten = {
-        datum: datumInput.value,
-        kommen: kommenInput.value,
-        gehen: gehenInput.value
-    };
+  const daten = {
 
-    localStorage.setItem(
-        "arbeitszeit_inputs",
-        JSON.stringify(daten)
-    );
+    datum: datumInput.value,
+
+    kommen: kommenInput.value,
+
+    gehen: gehenInput.value
+
+  };
+
+  localStorage.setItem(
+    "arbeitszeit_inputs",
+    JSON.stringify(daten)
+  );
 }
 
 
 function loadInputFields(){
 
+  const gespeichert =
+    localStorage.getItem(
+      "arbeitszeit_inputs"
+    );
+
+  if(!gespeichert) return;
+
+  try{
+
     const daten =
-        JSON.parse(
-            localStorage.getItem("arbeitszeit_inputs")
-        );
+      JSON.parse(gespeichert);
 
-    if(daten){
+    datumInput.value =
+      daten.datum || "";
 
-        datumInput.value = daten.datum || "";
-        kommenInput.value = daten.kommen || "";
-        gehenInput.value = daten.gehen || "";
+    kommenInput.value =
+      daten.kommen || "";
 
-    }
+    gehenInput.value =
+      daten.gehen || "";
+
+  }catch(e){
+
+    console.error(
+      "Eingaben konnten nicht geladen werden.",
+      e
+    );
+
+  }
 }
 
+
+/* =========================================================
+   ZEITBALKEN
+   ========================================================= */
 
 function updateTimebar(){
 
-    const kommen =
-        document.getElementById("kommen").value;
+  const kommen =
+    kommenInput.value;
 
-    const gehen =
-        document.getElementById("gehen").value;
+  const gehen =
+    gehenInput.value;
 
-    if(!kommen) return;
+  if(!kommen){
 
-    const kommenMin =
-        zeitZuMinuten(kommen);
-
-    const fruehesterEnde =
-        kommenMin + SOLL_MINUTEN;
-
-    const h =
-        Math.floor(fruehesterEnde / 60)
-        .toString()
-        .padStart(2,"0");
-
-    const m =
-        (fruehesterEnde % 60)
-        .toString()
-        .padStart(2,"0");
+    timebar.innerText = "0%";
+    timebar.style.width = "0%";
 
     feierabendAnzeige.innerText =
-        "Frühester Feierabend: " + h + ":" + m;
+      "Frühester Feierabend: --:--";
+
+    return;
+  }
 
 
-    let aktuelleMinuten =
-        gehen
-        ? zeitZuMinuten(gehen)
-        : Math.floor(
-            new Date().getHours() * 60 +
-            new Date().getMinutes()
-        );
+  const kommenMin =
+    zeitZuMinuten(kommen);
 
 
-    let fortschritt =
-        (aktuelleMinuten - kommenMin)
-        / SOLL_MINUTEN * 100;
+  const fruehesterEnde =
+    kommenMin + SOLL_MINUTEN;
 
 
-    let displayFortschritt =
-        Math.round(fortschritt);
+  const h =
+    Math.floor(fruehesterEnde / 60)
+    .toString()
+    .padStart(2,"0");
 
 
-    timebar.innerText =
-        displayFortschritt + "%";
+  const m =
+    (fruehesterEnde % 60)
+    .toString()
+    .padStart(2,"0");
 
 
-    timebar.style.width =
-        Math.min(fortschritt,150) + "%";
+  feierabendAnzeige.innerText =
+    "Frühester Feierabend: " +
+    h +
+    ":" +
+    m;
 
 
-    timebar.style.background =
-        fortschritt > 100
-        ? "var(--green)"
-        : "var(--blue)";
+  let aktuelleMinuten;
+
+
+  if(gehen){
+
+    aktuelleMinuten =
+      zeitZuMinuten(gehen);
+
+  }else{
+
+    const jetzt =
+      new Date();
+
+    aktuelleMinuten =
+      jetzt.getHours() * 60 +
+      jetzt.getMinutes();
+
+  }
+
+
+  const fortschritt =
+    (
+      (aktuelleMinuten - kommenMin) /
+      SOLL_MINUTEN
+    ) * 100;
+
+
+  const displayFortschritt =
+    Math.round(fortschritt);
+
+
+  timebar.innerText =
+    displayFortschritt + "%";
+
+
+  timebar.style.width =
+    Math.min(
+      Math.max(fortschritt,0),
+      150
+    ) + "%";
+
+
+  timebar.style.background =
+    fortschritt > 100
+    ? "var(--green)"
+    : "var(--blue)";
 }
 
+
+/* =========================================================
+   NEUEN HISTORIEN-EINTRAG ANLEGEN
+   ========================================================= */
 
 function inHistorie(){
 
-    const datum = datumInput.value;
-    const kommen = kommenInput.value;
-    const gehen = gehenInput.value;
+  const datum =
+    datumInput.value;
 
-    if(!datum || !kommen || !gehen){
-        return;
-    }
+  const kommen =
+    kommenInput.value;
 
-    /*
-     * Neuer Eintrag wird direkt oben eingefügt.
-     */
-    eintragErstellen(
-        datum,
-        kommen,
-        gehen,
-        true
+  const gehen =
+    gehenInput.value;
+
+
+  /* Prüfen, ob alles ausgefüllt ist */
+
+  if(
+    !datum ||
+    !kommen ||
+    !gehen
+  ){
+
+    alert(
+      "Bitte Datum, Kommen-Zeit und Gehen-Zeit eingeben."
     );
 
-    speichern();
-    zeitkontoBerechnen();
-    updateTimebar();
+    return;
+  }
+
+
+  /* Neuer Eintrag wird ganz oben eingefügt */
+
+  eintragErstellen(
+    datum,
+    kommen,
+    gehen
+  );
+
+
+  /* Alles speichern */
+
+  speichern();
+
+  zeitkontoBerechnen();
+
+  updateTimebar();
 }
 
 
-function eintragErstellen(datum,kommen,gehen,neu=false){
+/* =========================================================
+   EINTRAG ERSTELLEN
+   ========================================================= */
 
-    /*
-     * Bei einem neuen Eintrag:
-     * ganz oben einfügen.
-     *
-     * Beim Laden:
-     * normale Reihenfolge aus den sortierten Daten.
-     */
-    const row =
-        neu
-        ? historieTable.insertRow(0)
-        : historieTable.insertRow();
+function eintragErstellen(
+  datum,
+  kommen,
+  gehen
+){
+
+  /*
+   * insertRow(0) bedeutet:
+   * Neuer Eintrag steht immer ganz oben.
+   */
+
+  const row =
+    historieTable.insertRow(0);
 
 
-    row.insertCell(0).innerText = datum;
-    row.insertCell(1).innerText = kommen;
-    row.insertCell(2).innerText = gehen;
+  /* Datum */
+
+  row.insertCell(0).innerText =
+    datum;
 
 
-    const diff =
+  /* Kommen */
+
+  row.insertCell(1).innerText =
+    kommen;
+
+
+  /* Gehen */
+
+  row.insertCell(2).innerText =
+    gehen;
+
+
+  /* Überstunden */
+
+  const diff =
+    differenzBerechnen(
+      kommen,
+      gehen
+    );
+
+
+  const ueberstundenCell =
+    row.insertCell(3);
+
+
+  ueberstundenCell.innerText =
+    minutenZuText(diff);
+
+
+  ueberstundenCell.style.color =
+    diff >= 0
+    ? "var(--green)"
+    : "var(--danger)";
+
+
+  /* Aktionen */
+
+  const actionCell =
+    row.insertCell(4);
+
+
+  const wrapper =
+    document.createElement("div");
+
+  wrapper.className =
+    "action-buttons";
+
+
+  /* Bearbeiten */
+
+  const editBtn =
+    document.createElement("button");
+
+  editBtn.type =
+    "button";
+
+  editBtn.innerHTML =
+    "✏";
+
+  editBtn.className =
+    "icon-btn";
+
+
+  editBtn.onclick =
+    function(){
+
+      bearbeiten(row);
+
+    };
+
+
+  /* Löschen */
+
+  const delBtn =
+    document.createElement("button");
+
+  delBtn.type =
+    "button";
+
+  delBtn.innerHTML =
+    "🗑";
+
+  delBtn.className =
+    "icon-btn";
+
+  delBtn.style.color =
+    "var(--danger)";
+
+
+  delBtn.onclick =
+    function(){
+
+      if(
+        confirm(
+          "Eintrag wirklich löschen?"
+        )
+      ){
+
+        row.remove();
+
+        speichern();
+
+        zeitkontoBerechnen();
+
+        updateTimebar();
+
+      }
+
+    };
+
+
+  wrapper.appendChild(editBtn);
+
+  wrapper.appendChild(delBtn);
+
+  actionCell.appendChild(wrapper);
+}
+
+
+/* =========================================================
+   EINTRAG BEARBEITEN
+   ========================================================= */
+
+function bearbeiten(row){
+
+  const datum =
+    row.cells[0].innerText;
+
+  const kommen =
+    row.cells[1].innerText;
+
+  const gehen =
+    row.cells[2].innerText;
+
+
+  row.cells[0].innerHTML =
+    `<input type="date" value="${datum}">`;
+
+
+  row.cells[1].innerHTML =
+    `<input type="time" value="${kommen}">`;
+
+
+  row.cells[2].innerHTML =
+    `<input type="time" value="${gehen}">`;
+
+
+  const saveBtn =
+    document.createElement("button");
+
+
+  saveBtn.type =
+    "button";
+
+  saveBtn.innerText =
+    "Speichern";
+
+  saveBtn.className =
+    "btn-blue";
+
+
+  saveBtn.onclick =
+    function(){
+
+      const newDatum =
+        row.cells[0]
+        .querySelector("input")
+        .value;
+
+
+      const newKommen =
+        row.cells[1]
+        .querySelector("input")
+        .value;
+
+
+      const newGehen =
+        row.cells[2]
+        .querySelector("input")
+        .value;
+
+
+      if(
+        !newDatum ||
+        !newKommen ||
+        !newGehen
+      ){
+
+        alert(
+          "Bitte alle Felder ausfüllen."
+        );
+
+        return;
+      }
+
+
+      row.cells[0].innerText =
+        newDatum;
+
+      row.cells[1].innerText =
+        newKommen;
+
+      row.cells[2].innerText =
+        newGehen;
+
+
+      const diff =
         differenzBerechnen(
-            kommen,
-            gehen
+          newKommen,
+          newGehen
         );
 
 
-    const cell4 =
-        row.insertCell(3);
-
-    cell4.innerText =
+      row.cells[3].innerText =
         minutenZuText(diff);
 
-    cell4.style.color =
+
+      row.cells[3].style.color =
         diff >= 0
         ? "var(--green)"
         : "var(--danger)";
 
 
-    const actionCell =
-        row.insertCell(4);
+      speichern();
+
+      zeitkontoBerechnen();
+
+      updateTimebar();
+    };
 
 
-    const wrapper =
-        document.createElement("div");
+  row.cells[4].innerHTML =
+    "";
 
-    wrapper.className =
-        "action-buttons";
-
-
-    const editBtn =
-        document.createElement("button");
-
-    editBtn.innerHTML = "✏";
-    editBtn.className = "icon-btn";
-
-    editBtn.onclick =
-        function(){
-            bearbeiten(row);
-        };
+  row.cells[4].appendChild(
+    saveBtn
+  );
+}
 
 
-    const delBtn =
-        document.createElement("button");
+/* =========================================================
+   HISTORIE SPEICHERN
+   ========================================================= */
 
-    delBtn.innerHTML = "🗑";
-    delBtn.className = "icon-btn";
-    delBtn.style.color = "var(--danger)";
+function speichern(){
 
-    delBtn.onclick =
-        function(){
+  const daten = [];
 
-            if(confirm("Eintrag wirklich löschen?")){
+
+  for(
+    let i = 0;
+    i < historieTable.rows.length;
+    i++
+  ){
+
+    const row =
+      historieTable.rows[i];
+
+
+    daten.push([
+
+      row.cells[0].innerText,
+
+      row.cells[1].innerText,
+
+      row.cells[2].innerText
+
+    ]);
+
+  }
+
+
+  localStorage.setItem(
+    "arbeitszeit",
+    JSON.stringify(daten)
+  );
+}
+
+
+/* =========================================================
+   HISTORIE LADEN
+   ========================================================= */
+
+function laden(){
+
+  const gespeichert =
+    localStorage.getItem(
+      "arbeitszeit"
+    );
+
+
+  if(gespeichert){
+
+    try{
+
+      const daten =
+        JSON.parse(gespeichert);
+
+
+      /*
+       * Neuester Eintrag zuerst.
+       */
+
+      daten.sort(
+        function(a,b){
+
+          return (
+            new Date(b[0]) -
+            new Date(a[0])
+          );
+
+        }
+      );
+
+
+      daten.forEach(
+        function(eintrag){
+
+          /*
+           * Beim Laden direkt in der
+           * sortierten Reihenfolge einfügen.
+           */
+
+          const row =
+            historieTable.insertRow();
+
+
+          row.insertCell(0).innerText =
+            eintrag[0];
+
+          row.insertCell(1).innerText =
+            eintrag[1];
+
+          row.insertCell(2).innerText =
+            eintrag[2];
+
+
+          const diff =
+            differenzBerechnen(
+              eintrag[1],
+              eintrag[2]
+            );
+
+
+          const cell =
+            row.insertCell(3);
+
+
+          cell.innerText =
+            minutenZuText(diff);
+
+
+          cell.style.color =
+            diff >= 0
+            ? "var(--green)"
+            : "var(--danger)";
+
+
+          const actionCell =
+            row.insertCell(4);
+
+
+          const wrapper =
+            document.createElement("div");
+
+
+          wrapper.className =
+            "action-buttons";
+
+
+          const editBtn =
+            document.createElement("button");
+
+
+          editBtn.type =
+            "button";
+
+          editBtn.innerHTML =
+            "✏";
+
+          editBtn.className =
+            "icon-btn";
+
+
+          editBtn.onclick =
+            function(){
+
+              bearbeiten(row);
+
+            };
+
+
+          const delBtn =
+            document.createElement("button");
+
+
+          delBtn.type =
+            "button";
+
+          delBtn.innerHTML =
+            "🗑";
+
+          delBtn.className =
+            "icon-btn";
+
+          delBtn.style.color =
+            "var(--danger)";
+
+
+          delBtn.onclick =
+            function(){
+
+              if(
+                confirm(
+                  "Eintrag wirklich löschen?"
+                )
+              ){
 
                 row.remove();
 
                 speichern();
+
                 zeitkontoBerechnen();
+
                 updateTimebar();
 
-            }
+              }
 
-        };
-
-
-    wrapper.appendChild(editBtn);
-    wrapper.appendChild(delBtn);
-
-    actionCell.appendChild(wrapper);
-}
+            };
 
 
-function bearbeiten(row){
+          wrapper.appendChild(editBtn);
 
-    const datum =
-        row.cells[0].innerText;
+          wrapper.appendChild(delBtn);
 
-    const kommen =
-        row.cells[1].innerText;
+          actionCell.appendChild(wrapper);
 
-    const gehen =
-        row.cells[2].innerText;
+        }
+      );
 
+    }catch(e){
 
-    row.cells[0].innerHTML =
-        `<input type="date" value="${datum}">`;
-
-    row.cells[1].innerHTML =
-        `<input type="time" value="${kommen}">`;
-
-    row.cells[2].innerHTML =
-        `<input type="time" value="${gehen}">`;
-
-
-    const saveBtn =
-        document.createElement("button");
-
-    saveBtn.innerText =
-        "Speichern";
-
-    saveBtn.className =
-        "btn-blue";
-
-
-    saveBtn.onclick =
-        function(){
-
-            const newDatum =
-                row.cells[0]
-                .querySelector("input")
-                .value;
-
-            const newKommen =
-                row.cells[1]
-                .querySelector("input")
-                .value;
-
-            const newGehen =
-                row.cells[2]
-                .querySelector("input")
-                .value;
-
-
-            if(!newDatum || !newKommen || !newGehen){
-                return;
-            }
-
-
-            row.cells[0].innerText =
-                newDatum;
-
-            row.cells[1].innerText =
-                newKommen;
-
-            row.cells[2].innerText =
-                newGehen;
-
-
-            const diff =
-                differenzBerechnen(
-                    newKommen,
-                    newGehen
-                );
-
-
-            row.cells[3].innerText =
-                minutenZuText(diff);
-
-            row.cells[3].style.color =
-                diff >= 0
-                ? "var(--green)"
-                : "var(--danger)";
-
-
-            speichern();
-            zeitkontoBerechnen();
-            updateTimebar();
-
-        };
-
-
-    row.cells[4].innerHTML = "";
-
-    row.cells[4].appendChild(saveBtn);
-}
-
-
-function speichern(){
-
-    const daten = [];
-
-
-    for(
-        let i = 0;
-        i < historieTable.rows.length;
-        i++
-    ){
-
-        const r =
-            historieTable.rows[i];
-
-
-        daten.push([
-            r.cells[0].innerText,
-            r.cells[1].innerText,
-            r.cells[2].innerText
-        ]);
+      console.error(
+        "Historie konnte nicht geladen werden.",
+        e
+      );
 
     }
 
+  }
 
-    localStorage.setItem(
-        "arbeitszeit",
-        JSON.stringify(daten)
+
+  zeitkontoBerechnen();
+
+  loadInputFields();
+
+  updateTimebar();
+}
+
+
+/* =========================================================
+   ZEITKONTO
+   ========================================================= */
+
+function zeitkontoBerechnen(){
+
+  let sum =
+    0;
+
+
+  for(
+    let i = 0;
+    i < historieTable.rows.length;
+    i++
+  ){
+
+    const row =
+      historieTable.rows[i];
+
+
+    sum +=
+      differenzBerechnen(
+        row.cells[1].innerText,
+        row.cells[2].innerText
+      );
+
+  }
+
+
+  zeitkontoAnzeige.innerText =
+    minutenZuText(sum);
+
+
+  zeitkontoAnzeige.className =
+    "timekonto " +
+    (
+      sum >= 0
+      ? "plus"
+      : "minus"
     );
 }
 
 
-function laden(){
-
-    const daten =
-        JSON.parse(
-            localStorage.getItem("arbeitszeit")
-        ) || [];
-
-
-    /*
-     * Bestehende Einträge nach Datum sortieren.
-     * Neuester zuerst.
-     */
-    daten.sort(function(a,b){
-
-        return new Date(b[0]) - new Date(a[0]);
-
-    });
-
-
-    daten.forEach(function(d){
-
-        eintragErstellen(
-            d[0],
-            d[1],
-            d[2],
-            false
-        );
-
-    });
-
-
-    zeitkontoBerechnen();
-    updateTimebar();
-    loadInputFields();
-}
-
-
-function zeitkontoBerechnen(){
-
-    let sum = 0;
-
-
-    for(
-        let i = 0;
-        i < historieTable.rows.length;
-        i++
-    ){
-
-        const r =
-            historieTable.rows[i];
-
-
-        sum +=
-            differenzBerechnen(
-                r.cells[1].innerText,
-                r.cells[2].innerText
-            );
-
-    }
-
-
-    zeitkontoAnzeige.innerText =
-        minutenZuText(sum);
-
-
-    zeitkontoAnzeige.className =
-        "timekonto " +
-        (
-            sum >= 0
-            ? "plus"
-            : "minus"
-        );
-}
-
+/* =========================================================
+   ALLES LÖSCHEN
+   ========================================================= */
 
 function allesLoeschen(){
 
-    if(confirm("Wirklich alles löschen?")){
+  if(
+    confirm(
+      "Wirklich alles löschen?"
+    )
+  ){
 
-        localStorage.removeItem("arbeitszeit");
-        localStorage.removeItem("arbeitszeit_inputs");
+    localStorage.removeItem(
+      "arbeitszeit"
+    );
 
-        location.reload();
+    localStorage.removeItem(
+      "arbeitszeit_inputs"
+    );
 
-    }
+    location.reload();
+
+  }
 }
 
+
+/* =========================================================
+   PDF / DRUCK
+   ========================================================= */
 
 function exportPDF(){
 
-    window.print();
+  window.print();
 
 }
 
+
+/* =========================================================
+   START
+   ========================================================= */
 
 laden();
 
